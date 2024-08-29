@@ -1,17 +1,23 @@
 package generate;
 
 public class ItemFactura {
-
-    private Producto producto;
+    private producto producto;
     private int cantidad;
 
+    //Constructor
 
-    //Getters y Setter
-    public Producto getProducto() {
+    public itemFactura(producto producto, int cantidad) {
+        this.producto = producto;
+        this.cantidad = cantidad;
+    }
+
+    // Getters and Setters
+
+    public producto getProducto() {
         return producto;
     }
 
-    public void setProducto(Producto producto) {
+    public void setProducto(producto producto) {
         this.producto = producto;
     }
 
@@ -21,6 +27,23 @@ public class ItemFactura {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
+    }
+
+
+    /*Método para calcular el importe de un producto.
+      La operación es cantidad * precio que tiene el objeto producto.*/
+
+
+    public float calcularImporte() {
+        return (float) (cantidad * producto.getPrecio());
+    }
+
+
+    //Retorna la informacion
+
+    @Override
+    public String toString() {
+        return producto.getNombre() + "\t" + cantidad + "\t" + calcularImporte();
     }
 }
 

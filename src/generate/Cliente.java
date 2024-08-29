@@ -1,18 +1,18 @@
 package generate;
 
 public class Cliente {
+    private String Nombre;
+    private String nif;//Numero de identificacion fiscal.
 
-    private String nombre;
-    private String nif; // Número de Identificación Fiscal
 
+    //Getter and setters
 
-//Getters y Setter
     public String getNombre() {
-        return nombre;
+        return Nombre;
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        Nombre = nombre;
     }
 
     public String getNif() {
