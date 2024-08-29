@@ -21,7 +21,6 @@ public class Main {
         System.out.print("Ingrese el Nif del Cliente: ");
         cliente.setNif(scanner.nextLine());
 
-        //Genrecacion de factura automatica
 
         System.out.print("Ingrese una descripción de la factura (o presione Enter para usar la predeterminada): ");
         String descripcion = scanner.nextLine();
@@ -38,7 +37,6 @@ public class Main {
 
             //Informacion del producto
 
-            // Código del producto asignado automáticamente en el constructor de Producto
 
             System.out.print("Ingrese el nombre del producto nº " + (i + 1) + ": ");
             Producto.setNombre(scanner.nextLine());
@@ -54,7 +52,6 @@ public class Main {
             int cantidad = scanner.nextInt();
 
 
-            // Se pasa el producto y la cantidad en el orden correcto al constructor de ItemFactura
 
             factura.addItemFactura(new ItemFactura(Producto, cantidad));
 

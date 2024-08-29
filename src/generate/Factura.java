@@ -29,7 +29,7 @@ public class Factura {
         this.folio = ultimoFolio;
     }
 
-    // Método para añadir ítems a la factura
+
 
     public void addItemFactura(ItemFactura item) {
         if (indiceItems < MAX_ITEMS) {
@@ -53,34 +53,34 @@ public class Factura {
     // Método para generar el detalle de la factura
 
     public String generarDetalle() {
-        StringBuilder sb = new StringBuilder("Factura Nº: ");
-        sb.append(folio)
+        StringBuilder txt = new StringBuilder("Factura Nº: ");
+        txt.append(folio)
                 .append("\nCliente: ")
                 .append(this.Cliente.getNombre())
-                .append("\t NIF: ")
+                .append("\n NIF: ")
                 .append(Cliente.getNif())
                 .append("\nDescripción: ")
                 .append(this.descripcion)
                 .append("\n");
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd 'de' MMMM, yyyy");
-        sb.append("Fecha Emisión: ")
+        txt.append("Fecha Emisión: ")
                 .append(dateFormat.format(this.fecha))
                 .append("\n")
-                .append("\n#\tNombre\t$\tCant.\tTotal\n");
+                .append("\n#\tNombre\n$\nCant.\nTotal\n");
 
         for (int i = 0; i < indiceItems; i++) {
             ItemFactura item = items[i];
             if (item != null) {
-                sb.append(i + 1) // Número del ítem
+                txt.append(i + 1) // Número del ítem
                         .append("\t")
                         .append(item)
                         .append("\n");
             }
         }
-        sb.append("\nGran Total: ")
+        txt.append("\nGran Total: ")
                 .append(calcularTotal());
-        return sb.toString();
+        return txt.toString();
     }
 
     //Retorna la informacion
