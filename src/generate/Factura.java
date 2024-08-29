@@ -7,8 +7,8 @@ public class Factura {
     private int folio;
     private String descripcion;
     private Date fecha;
-    private cliente cliente;
-    private itemFactura[] items;
+    private Cliente Cliente;
+    private ItemFactura[] items;
 
     //Creacion del indice de items
 
@@ -17,11 +17,11 @@ public class Factura {
     private static int ultimoFolio = 0;
 
     // Constructor
-    public Factura(String descripcion, cliente cliente) {
+    public Factura(String descripcion, Cliente cliente) {
         this.descripcion = descripcion;
-        this.cliente = cliente;
+        this.Cliente = cliente;
         this.fecha = new Date();
-        this.items = new itemFactura[MAX_ITEMS];
+        this.items = new ItemFactura[MAX_ITEMS];
 
         // Asigna un folio único incrementando el último folio
 
@@ -31,7 +31,7 @@ public class Factura {
 
     // Método para añadir ítems a la factura
 
-    public void addItemFactura(itemFactura item) {
+    public void addItemFactura(ItemFactura item) {
         if (indiceItems < MAX_ITEMS) {
             items[indiceItems] = item;
             indiceItems++;
@@ -42,7 +42,7 @@ public class Factura {
 
     public float calcularTotal() {
         float total = 0.0f;
-        for (itemFactura item : items) {
+        for (ItemFactura item : items) {
             if (item != null) {
                 total += item.calcularImporte();
             }
@@ -56,9 +56,9 @@ public class Factura {
         StringBuilder sb = new StringBuilder("Factura Nº: ");
         sb.append(folio)
                 .append("\nCliente: ")
-                .append(this.cliente.getNombre())
+                .append(this.Cliente.getNombre())
                 .append("\t NIF: ")
-                .append(cliente.getNif())
+                .append(Cliente.getNif())
                 .append("\nDescripción: ")
                 .append(this.descripcion)
                 .append("\n");
@@ -70,7 +70,7 @@ public class Factura {
                 .append("\n#\tNombre\t$\tCant.\tTotal\n");
 
         for (int i = 0; i < indiceItems; i++) {
-            itemFactura item = items[i];
+            ItemFactura item = items[i];
             if (item != null) {
                 sb.append(i + 1) // Número del ítem
                         .append("\t")

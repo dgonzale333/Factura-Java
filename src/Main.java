@@ -26,9 +26,6 @@ public class Main {
         System.out.print("Ingrese una descripción de la factura (o presione Enter para usar la predeterminada): ");
         String descripcion = scanner.nextLine();
 
-        descripcion = (descripcion.length() == 0)
-                ? "La factura electrónica es un documento digital que certifica la venta de bienes o servicios,\ncumpliendo con requisitos legales y fiscales. Contiene información clave como los datos del vendedor y comprador,\nnúmero de factura, fecha, descripción de productos o servicios, precios, impuestos y el total a pagar."
-                : descripcion;
 
         Factura factura = new Factura(descripcion, cliente);
 
@@ -37,19 +34,19 @@ public class Main {
         //Bucle para generar la cantidad de productos a ingresar
 
         for (int i = 0; i < 5; i++) {
-            Producto producto = new Producto();
+            Producto Producto = new Producto();
 
             //Informacion del producto
 
             // Código del producto asignado automáticamente en el constructor de Producto
 
             System.out.print("Ingrese el nombre del producto nº " + (i + 1) + ": ");
-            producto.setNombre(scanner.nextLine());
+            Producto.setNombre(scanner.nextLine());
 
             //Imprime el precio del producto
 
             System.out.print("Ingrese el precio del producto: ");
-            producto.setPrecio(scanner.nextFloat());
+            Producto.setPrecio(scanner.nextFloat());
 
             //Imprime La cantidad del producto
 
@@ -59,7 +56,7 @@ public class Main {
 
             // Se pasa el producto y la cantidad en el orden correcto al constructor de ItemFactura
 
-            factura.addItemFactura(new ItemFactura(Producto, Cantidad));
+            factura.addItemFactura(new ItemFactura(Producto, cantidad));
 
             System.out.println();
             scanner.nextLine();

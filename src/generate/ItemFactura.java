@@ -1,24 +1,24 @@
 package generate;
 
 public class ItemFactura {
-    private producto producto;
+    private Producto Producto;
     private int cantidad;
 
     //Constructor
 
-    public itemFactura(producto producto, int cantidad) {
-        this.producto = producto;
+    public ItemFactura(Producto Producto, int cantidad) {
+        this.Producto = Producto;
         this.cantidad = cantidad;
     }
 
     // Getters and Setters
 
-    public producto getProducto() {
-        return producto;
+    public Producto getProducto() {
+        return Producto;
     }
 
-    public void setProducto(producto producto) {
-        this.producto = producto;
+    public void setProducto(Producto producto) {
+        this.Producto = producto;
     }
 
     public int getCantidad() {
@@ -35,7 +35,7 @@ public class ItemFactura {
 
 
     public float calcularImporte() {
-        return (float) (cantidad * producto.getPrecio());
+        return (float) (cantidad * Producto.getPrecio());
     }
 
 
@@ -43,7 +43,7 @@ public class ItemFactura {
 
     @Override
     public String toString() {
-        return producto.getNombre() + "\t" + cantidad + "\t" + calcularImporte();
+        return Producto.getNombre() + "\t" + cantidad + "\t" + calcularImporte();
     }
 }
 
